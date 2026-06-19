@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import model.Account;
-import Main;
+import util.DBConnection;
 
 public class AccountRepository {
 
@@ -18,7 +18,7 @@ public class AccountRepository {
         String seqSql = "SELECT 'AC-' || ACCOUNT_SEQ.NEXTVAL AS ACC_NO FROM DUAL";
         String insertSql = "INSERT INTO ACCOUNT (ACCOUNT_NUMBER, CUSTOMER_NAME, BALANCE) VALUES (?, ?, ?)";
 
-        try (Connection conn = Main.getConnection()) {
+        try (Connection conn = DBConnection.getConnection()) {
             // 1. 시퀀스로 계좌번호 생성
             String accountNumber;
             try (PreparedStatement seqPstmt = conn.prepareStatement(seqSql);
@@ -45,7 +45,7 @@ public class AccountRepository {
         String sql = "SELECT ACCOUNT_NUMBER, CUSTOMER_NAME, BALANCE FROM ACCOUNT";
         List<Account> accounts = new ArrayList<>();
 
-        try (Connection conn = Main.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
 
@@ -62,7 +62,7 @@ public class AccountRepository {
     public Optional<Account> findById(String accountNumber) {
         String sql = "SELECT ACCOUNT_NUMBER, CUSTOMER_NAME, BALANCE FROM ACCOUNT WHERE ACCOUNT_NUMBER = ?";
 
-        try (Connection conn = Main.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, accountNumber);
@@ -81,7 +81,7 @@ public class AccountRepository {
     public void update(Account account) {
         String sql = "UPDATE ACCOUNT SET BALANCE = ? WHERE ACCOUNT_NUMBER = ?";
 
-        try (Connection conn = Main.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setLong(1, account.getBalance());
@@ -100,7 +100,7 @@ public class AccountRepository {
     public boolean delete(String accountNumber) {
         String sql = "DELETE FROM ACCOUNT WHERE ACCOUNT_NUMBER = ?";
 
-        try (Connection conn = Main.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, accountNumber);

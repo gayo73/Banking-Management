@@ -11,7 +11,7 @@ public class AccountView {
 		System.out.println("=============================");
 		System.out.println("    은행 계좌 관리 시스템 ");
 		System.out.println("=============================");
-		System.err.println("  1. 계좌 개설");
+		System.out.println("  1. 계좌 개설");
 		System.out.println("  2. 전체 계좌 조회");
 		System.out.println("  3. 계좌 단건 조회");
 		System.out.println("  4. 입금");

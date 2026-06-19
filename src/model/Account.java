@@ -17,4 +17,12 @@ public class Account {
     private String accountNumber;  // 계좌번호 (자동 발급)
     private String customerName;   // 고객명
     private long balance; //잔액
+    
+    public static Account create(String customerName, long balance) {
+        return Account.builder()
+                .accountNumber("AC-" + (sequence++))
+                .customerName(customerName)
+                .balance(balance)
+                .build();
+    }
 }

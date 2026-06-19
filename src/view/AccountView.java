@@ -8,9 +8,9 @@ public class AccountView {
 
 	// 메인 메뉴 출력
 	public void printMenu() {
-		System.out.println("=============================");
+		System.out.println("======================================");
 		System.out.println("    은행 계좌 관리 시스템 ");
-		System.out.println("=============================");
+		System.out.println("======================================");
 		System.out.println("  1. 계좌 개설");
 		System.out.println("  2. 전체 계좌 조회");
 		System.out.println("  3. 계좌 단건 조회");
@@ -51,7 +51,7 @@ public class AccountView {
 			printError("존재하지 않는 계좌번호입니다.");
 			return;
 		}
-		System.out.println("=======================================");
+		System.out.println("======================================");
 		System.out.println(" [계좌 상세 정보]");
 		System.out.printf(" 계좌번호 : %s%n", acc.getAccountNumber());
 		System.out.printf(" 고객명 : %s%n", acc.getCustomerName());

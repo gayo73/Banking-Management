@@ -41,7 +41,7 @@ public class AccountService {
     public void deposit(String accountNumber, long amount) {
         validateAmount(amount);
         Account account = findById(accountNumber);
-        account.setBalance(account.getBalance() + amount);
+        repository.update(accountNumber, account.getBalance() + amount);
     }
 
     // 5. 출금
@@ -52,7 +52,7 @@ public class AccountService {
         if (account.getBalance() < amount) {
             throw new IllegalStateException("잔액이 부족합니다. 현재 잔액: " + account.getBalance());
         }
-        account.setBalance(account.getBalance() - amount);
+        repository.update(accountNumber, account.getBalance() - amount);
     }
 
     // 6. 이체

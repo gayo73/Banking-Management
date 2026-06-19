@@ -73,7 +73,7 @@ public class AccountController {
 	// 4. 입금
 	private void deposit() {
 		String accountNumber = inputString("계좌번호: ");
-        long amount          = inputLong("입금액: ");
+        long amount = inputLong("입금액: ");
  
         service.deposit(accountNumber, amount);
         view.printMessage("입금이 완료되었습니다.");
@@ -82,7 +82,7 @@ public class AccountController {
 	// 5. 출금
 	private void withdraw() {
 		String accountNumber = inputString("계좌번호: ");
-        long amount          = inputLong("출금액: ");
+        long amount = inputLong("출금액: ");
  
         service.withdraw(accountNumber, amount);
         view.printMessage("출금이 완료되었습니다.");

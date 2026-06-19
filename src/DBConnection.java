@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import javax.management.RuntimeErrorException;
 
 public class DBConnection {
-	private static final String url = "jdbc:oracle:thin:@192.168.0.141:1521:xe";
+	private static final String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String user = "hr";
 	private static final String password = "hr";
 	

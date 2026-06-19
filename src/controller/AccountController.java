@@ -76,7 +76,7 @@ public class AccountController {
         long amount          = inputLong("입금액: ");
  
         service.deposit(accountNumber, amount);
-        view.printMessage("입금이 완료되었습니다.")
+        view.printMessage("입금이 완료되었습니다.");
 	}
 
 	// 5. 출금

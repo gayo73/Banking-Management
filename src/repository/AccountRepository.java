@@ -17,4 +17,18 @@ public class AccountRepository {
     public List<Account> findAll() {
         return accounts;
     }
+    //한건 조회
+    public Optional<Account> findById(String accountNumber) {
+        for (Account account : accounts) {
+            if (account.getAccountNumber().equals(accountNumber)) {
+                return Optional.of(account);
+            }
+        }
+        return Optional.empty();
+    }
+
+    //계좌 해지
+    public boolean delete(String accountNumber) {
+        return accounts.removeIf(account -> account.getAccountNumber().equals(accountNumber));
+    }
 }

@@ -7,14 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-
-import model.Account;
 import util.DBConnection;
 
-public class AccountRepository {
+import model.Account;
+<<<<<<< HEAD
+import util.DBConnection;
+=======
+>>>>>>> feature/repository
 
+public class AccountRepository {
+	
     // 계좌 저장 + DB 시퀀스로 계좌번호 발급
     public void save(Account account) {
+    	
         String seqSql = "SELECT 'AC-' || ACCOUNT_SEQ.NEXTVAL AS ACC_NO FROM DUAL";
         String insertSql = "INSERT INTO ACCOUNT (ACCOUNT_NUMBER, CUSTOMER_NAME, BALANCE) VALUES (?, ?, ?)";
 

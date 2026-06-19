@@ -79,18 +79,18 @@ public class AccountRepository {
     }
 
     // 잔액 변경 반영 (입금/출금/이체에서 필요)
-    public void update(Account account) {
+    public void update(String accountNumber, long newBalance) {
         String sql = "UPDATE ACCOUNT SET BALANCE = ? WHERE ACCOUNT_NUMBER = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setLong(1, account.getBalance());
-            pstmt.setString(2, account.getAccountNumber());
+            pstmt.setLong(1, newBalance);
+            pstmt.setString(2, accountNumber);
 
             int rows = pstmt.executeUpdate();
             if (rows == 0) {
-                throw new NoSuchElementException("존재하지 않는 계좌입니다: " + account.getAccountNumber());
+                throw new NoSuchElementException("존재하지 않는 계좌입니다: " + accountNumber);
             }
         } catch (Exception e) {
             throw new RuntimeException("잔액 업데이트 중 오류 발생", e);

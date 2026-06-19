@@ -7,9 +7,7 @@ import model.Account;
 import repository.AccountRepository;
 
 public class AccountService {
-
     private final AccountRepository repository;
-
     public AccountService(AccountRepository repository) {
         this.repository = repository;
     }

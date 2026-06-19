@@ -10,7 +10,6 @@ import java.util.Optional;
 import util.DBConnection;
 
 import model.Account;
-import util.DBConnection;
 
 public class AccountRepository {
 	

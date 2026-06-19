@@ -10,10 +10,7 @@ import java.util.Optional;
 import util.DBConnection;
 
 import model.Account;
-<<<<<<< HEAD
 import util.DBConnection;
-=======
->>>>>>> feature/repository
 
 public class AccountRepository {
 	
